@@ -1,19 +1,20 @@
 import random
 
-#Pede a jogada de ambos os Jogadores
-Jogador1 = input("Pedra, Papel ou Tesoura? ")
-Jogador2 = random.choice(["Tesoura", "Papel", "Pedra"])
+#Apresenta as Jogadas
+Jogadas = ["Pedra", "Papel" , "Tesoura"]
+Continuar = True
 
-#Condições onde o Jogador ganha
-if Jogador1 == "Pedra" and Jogador2 == "Tesoura":
-    print(f" O Adversário jogou {Jogador2} você Ganhou")
-elif Jogador1 == "Papel" and Jogador2 == "Pedra":
-    print(f" O Adversário jogou {Jogador2} você Ganhou")
-elif Jogador1 == "Tesoura" and Jogador2 == "Papel":
-    print(f" O Adversário jogou {Jogador2} você Ganhou")
-if Jogador1 == Jogador2:
-    print("Vocês escolheram o mesmo")
+#Estabeleçe o loop que será executado caso haja empate 
+while Continuar:
+    Jogador1 = input("Pedra, Papel ou Tesoura? ")
+    Jogador2 = random.choice(Jogadas)
 
-#Caso nenhuma das condições de vitória tenham sido satisfeitas
-else:
-    print(f"O Adversário jogou {Jogador2} logo ele Ganhou")
+#Estabeleçe as condições de vitória, derrota e empate dos jogadores
+    if Jogador1 == "Pedra" and Jogador2 == "Tesoura" or Jogador1 == "Papel" and Jogador2 == "Pedra" or Jogador1 == "Tesoura" and Jogador2 == "Papel":
+        print(f"Você jogou {Jogador1} e o Adversário jogou {Jogador2} logo você ganhou. ")
+        Continuar = False
+    elif Jogador1 == Jogador2:
+        print("Empate por favor repitam")
+    else:
+        print(f"O Adversário escolheu {Jogador2} e você {Jogador1} logo você perdeu. ")
+        Continuar = False
